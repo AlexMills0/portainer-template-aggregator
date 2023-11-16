@@ -14555,6 +14555,12 @@
                     "label": "HISHTORY_POSTGRES_DB",
                     "default": "postgresql://${HISHTORY_DB_USER}:${HISHTORY_DB_PASS}@hishtory-db:5432/hishtory?sslmode=disable",
                     "description": "Postgres DB [Connection URI](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING). Special characters must be [URL encoded](https://en.wikipedia.org/wiki/URL_encoding)."
+                },
+                {
+                    "name": "HISHTORY_SQLITE_DB",
+                    "label": "HISHTORY_SQLITE_DB",
+                    "default": "/config/hishtory.db",
+                    "description": "SQLite database path. Needs to be a mounted volume for persistence. Don't set at the same time as HISHTORY_POSTGRES_DB."
                 }
             ],
             "ports": [
@@ -29207,6 +29213,38 @@
             "type": 3
         },
         {
+            "type": 3,
+            "title": "Pro Mosquitto with Management Center",
+            "description": "Commercial-grade Mosquitto MQTT broker with Management Center",
+            "note": "<a href='https://raw.githubusercontent.com/portainer/templates/master/templates-2.0.json' target='_blank'>Source</a>\nUse <b>admin</b> as the default username to connect to the Management Center.",
+            "categories": [
+                "edge"
+            ],
+            "platform": "linux",
+            "logo": "https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/cedalo.png",
+            "repository": {
+                "url": "https://github.com/portainer/templates",
+                "stackfile": "edge/cedalo-mosquitto-mc/docker-compose.yml"
+            },
+            "env": [
+                {
+                    "name": "CEDALO_LICENSE_KEY",
+                    "label": "License key"
+                },
+                {
+                    "name": "CEDALO_MC_BROKER_PASSWORD",
+                    "label": "Broker and management center password"
+                }
+            ]
+        },
+        {
+            "type": 4,
+            "title": "Pro Mosquitto with Management Center",
+            "description": "Commercial-grade Mosquitto MQTT broker with Management Center",
+            "note": "<a href='https://raw.githubusercontent.com/portainer/templates/master/templates-2.0.json' target='_blank'>Source</a>\nUse <b>admin</b> as the default username to connect to the Management Center.",
+            "stackfile": "https://raw.githubusercontent.com/portainer/templates/master/edge/cedalo-mosquitto-mc/docker-compose.yml"
+        },
+        {
             "categories": [
                 "Cloud",
                 "Productivity",
@@ -34699,8 +34737,8 @@
             "type": 4,
             "title": "Softing EdgeConnector modbus",
             "description": "Connect Modbus TCP Sensors/PLCs and provide the data via OPC UA and MQTT",
-            "note": "<a href='https://raw.githubusercontent.com/portainer/templates/master/templates-2.0.json' target='_blank'>Source</a>\nConnect Modbus TCP Sensors/PLCs and provide the data via OPC UA and MQTT",
-            "stackfile": "https://raw.githubusercontent.com/portainer/templates/master/edge/softing-edgeconnector-modbus/docker-compose.yml"
+            "stackfile": "https://raw.githubusercontent.com/portainer/templates/master/edge/softing-edgeconnector-modbus/docker-compose.yml",
+            "note": "<a href='https://raw.githubusercontent.com/portainer/templates/master/templates-2.0.json' target='_blank'>Source</a>"
         },
         {
             "type": 1,
