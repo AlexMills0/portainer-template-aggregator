@@ -4000,6 +4000,12 @@
                     "label": "BASE_URL",
                     "default": "",
                     "description": "Specify the full URL (including protocol) when running behind a reverse proxy"
+                },
+                {
+                    "name": "PLAYWRIGHT_DRIVER_URL",
+                    "label": "PLAYWRIGHT_DRIVER_URL",
+                    "default": "",
+                    "description": "Specify the full URL to your chrome driver instance. See the [wiki](https://github.com/dgtlmoon/changedetection.io/wiki/Playwright-content-fetcher) for details."
                 }
             ],
             "ports": [
@@ -4490,6 +4496,22 @@
                 }
             ],
             "note": "<a href='https://raw.githubusercontent.com/OliverCullimore/portainer-templates/master/templates.json' target='_blank'>Source</a>"
+        },
+        {
+            "categories": [
+                "File Browsers"
+            ],
+            "description": "Chibisafe is a modern and self-hosted take on file uploading services that can handle anything you throw at it thanks to it's robust and fast API, chunked uploads support and more.",
+            "logo": "https://chibisafe.moe/logo.svg",
+            "name": "chibisafe",
+            "platform": "linux",
+            "repository": {
+                "stackfile": "Template/Stack/chibisafe.yml",
+                "url": "https://github.com/xneo1/portainer_templates"
+            },
+            "title": "Chibisafe",
+            "type": 3,
+            "note": "<a href='https://raw.githubusercontent.com/xneo1/portainer_templates/master/Template/template.json' target='_blank'>Source</a>"
         },
         {
             "categories": [
@@ -24773,6 +24795,18 @@
                     "label": "SUBFOLDER",
                     "default": "/",
                     "description": "Specify a sobfolder if running this behind a reverse proxy (IE /proxy/)"
+                },
+                {
+                    "name": "NGINX_PORT",
+                    "label": "NGINX_PORT",
+                    "default": "80",
+                    "description": "Specify a different internal port for the asset server"
+                },
+                {
+                    "name": "WEB_APP_PORT",
+                    "label": "WEB_APP_PORT",
+                    "default": "3000",
+                    "description": "Specify a different internal port for the configuration UI"
                 }
             ],
             "ports": [
@@ -28816,7 +28850,7 @@
                 "stackfile": "Template/Stack/pingvin.yml",
                 "url": "https://github.com/xneo1/portainer_templates"
             },
-            "title": "Pingvin Share",
+            "title": "Pingvin",
             "type": 3,
             "note": "<a href='https://raw.githubusercontent.com/xneo1/portainer_templates/master/Template/template.json' target='_blank'>Source</a>"
         },
@@ -31458,6 +31492,46 @@
                 {
                     "container": "/code",
                     "bind": "/volume1/docker/pylon/code"
+                }
+            ],
+            "restart_policy": "unless-stopped"
+        },
+        {
+            "type": 1,
+            "title": "Python",
+            "name": "Python",
+            "note": "<a href='https://raw.githubusercontent.com/technorabilia/portainer-templates/main/lsio/templates/templates-2.0.json' target='_blank'>Source</a>\nPortainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/python/config</p>",
+            "description": "This container needs special attention. Please check https://hub.docker.com/r/linuxserver/python for details.",
+            "platform": "linux",
+            "logo": "",
+            "image": "linuxserver/python:latest",
+            "env": [
+                {
+                    "name": "PUID",
+                    "label": "PUID",
+                    "default": "1024",
+                    "description": "for UserID"
+                },
+                {
+                    "name": "PGID",
+                    "label": "PGID",
+                    "default": "100",
+                    "description": "for GroupID"
+                },
+                {
+                    "name": "TZ",
+                    "label": "TZ",
+                    "default": "Europe/Amsterdam",
+                    "description": "specify a timezone to use, see this [list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)."
+                }
+            ],
+            "ports": [
+                "80:80/tcp"
+            ],
+            "volumes": [
+                {
+                    "container": "/config",
+                    "bind": "/volume1/docker/python/config"
                 }
             ],
             "restart_policy": "unless-stopped"
@@ -36553,6 +36627,23 @@
                 }
             ],
             "restart_policy": "unless-stopped"
+        },
+        {
+            "categories": [
+                "PDF Tools",
+                "Productivity"
+            ],
+            "description": "This is a powerful locally hosted web based PDF manipulation tool using docker that allows you to perform various operations on PDF files, such as splitting merging, converting, reorganizing, adding images, rotating, compressing, and more.",
+            "logo": "https://raw.githubusercontent.com/Stirling-Tools/Stirling-PDF/main/docs/stirling.png",
+            "name": "stirling-pdf",
+            "platform": "linux",
+            "repository": {
+                "stackfile": "Template/Stack/stirling-pdf.yml",
+                "url": "https://github.com/xneo1/portainer_templates"
+            },
+            "title": "Stirling-PDF",
+            "type": 3,
+            "note": "<a href='https://raw.githubusercontent.com/xneo1/portainer_templates/master/Template/template.json' target='_blank'>Source</a>"
         },
         {
             "categories": [
